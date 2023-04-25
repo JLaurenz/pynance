@@ -1,2 +1,2 @@
-numpy==1.22.2
-Plotly
+numpy==1.21.2
+Plotly==5.3.1
