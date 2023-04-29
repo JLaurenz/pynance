@@ -4,9 +4,6 @@ import numpy as np
 from log import db, auth
 
 # set choice as global variable
-choice = None
-button = None
-
 def main():
     st.set_page_config(page_title="PyNance")
     st.title("PyNance")
