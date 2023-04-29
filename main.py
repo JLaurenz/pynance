@@ -1,6 +1,11 @@
 import streamlit as st
 import plotly.graph_objects as go
 import numpy as np
+from log import db, auth
+
+# set choice as global variable
+choice = None
+button = None
 
 def main():
     st.set_page_config(page_title="PyNance")
@@ -17,17 +22,16 @@ def main():
 if button:
     if choice == "Login":
         try:
-            auth.sign_in_with_email_and_password(email, password)
-            st.success("Logged in as {}".format(email))
-            st.balloons()
+            user = auth.sign_in_with_email_and_password(email, password)
+            st.success("Logged in as {}".format(user["email"]))
         except:
             st.error("Invalid email or password")
-    elif choice == "Signup":
+    else:
         try:
-            auth.create_user_with_email_and_password(email, password)
-            st.success("Successfully created account for {}".format(email))
+            user = auth.create_user_with_email_and_password(email, password)
+            st.success("Account created for {}".format(user["email"]))
         except:
-            st.error("Email already exists")
+            st.error("Account already exists")
 
 if __name__ == "__main__":
     main()
