@@ -19,13 +19,13 @@ def main():
     choice = st.radio("Login or Signup", ("Login", "Signup"))
     button = st.button(choice)
 
-if button:
-    if choice == "Login":
-        try:
-            user = auth.sign_in_with_email_and_password(email, password)
-            st.success("Logged in as {}".format(user["email"]))
-        except:
-            st.error("Invalid email or password")
+    if button:
+        if choice == "Login":
+            try:
+                user = auth.sign_in_with_email_and_password(email, password)
+                st.success("Logged in as {}".format(user["email"]))
+            except:
+                st.error("Invalid email or password")
     else:
         try:
             user = auth.create_user_with_email_and_password(email, password)
