@@ -1,7 +1,7 @@
 import streamlit as st
 import plotly.graph_objects as go
 import numpy as np
-from log import db, auth
+from log import db, auth, signup
 
 # set choice as global variable
 def main():
@@ -23,6 +23,11 @@ def main():
                 st.success("Logged in as {}".format(user["email"]))
             except:
                 st.error("Invalid email or password")
+        if choice == "Signup":
+            if signup(email, password):
+                st.success("Account created for {}".format(email))
+            else:
+                st.error("Account already exists")
     else:
         try:
             user = auth.create_user_with_email_and_password(email, password)
