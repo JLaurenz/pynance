@@ -1,6 +1,5 @@
 import pyrebase
 import json
-import streamlit as st
 
 firebaseConfig = {
   'apiKey': "AIzaSyBj7haZR97aCD-gpDgdS71WZ3EctxGuS6o",
