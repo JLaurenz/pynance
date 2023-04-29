@@ -20,3 +20,11 @@ db = firebase.database()
 storage = firebase.storage()
 
 
+# When this method is called, it will create a new user in the database
+# with the given email and password
+def signup(email, password):
+    try:
+        user = auth.create_user_with_email_and_password(email, password)
+        return user
+    except:
+        return None
